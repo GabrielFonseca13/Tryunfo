@@ -3,12 +3,52 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends React.Component {
+  state = {
+    name: '',
+    description: '',
+    attr1: '',
+    attr2: '',
+    attr3: '',
+    image: '',
+    rare: '',
+    trunfo: false,
+  };
+
+  handleInputChange = (event) => {
+    const { name } = event.target;
+    const value = event.target.type === 'checkbox'
+      ? event.target.checked : event.target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
   render() {
+    const { name, description, attr1, attr2, attr3, image, rare, trunfo } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form />
-        <Card />
+        <Form
+          cardName={ name }
+          cardDescription={ description }
+          cardAttr1={ attr1 }
+          cardAttr2={ attr2 }
+          cardAttr3={ attr3 }
+          cardImage={ image }
+          cardRare={ rare }
+          cardTrunfo={ trunfo }
+          onInputChange={ this.handleInputChange }
+        />
+        <Card
+          cardName={ name }
+          cardDescription={ description }
+          cardAttr1={ attr1 }
+          cardAttr2={ attr2 }
+          cardAttr3={ attr3 }
+          cardImage={ image }
+          cardRare={ rare }
+          cardTrunfo={ trunfo }
+        />
       </div>
     );
   }
