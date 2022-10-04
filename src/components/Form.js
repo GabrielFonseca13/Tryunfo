@@ -21,7 +21,7 @@ class Form extends React.Component {
     console.log(hasTrunfo);
 
     return (
-      <div>
+      <form>
         <div>
           <label htmlFor="name">
             Name
@@ -139,7 +139,7 @@ class Form extends React.Component {
             Salvar
           </button>
         </div>
-      </div>
+      </form>
     );
   }
 }
